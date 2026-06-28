@@ -10,14 +10,14 @@ def get_mongo_client():
     This connection lives for the lifetime of the app process - do not
     call client.close() anywhere; Streamlit manages the resource cache.
     """
-    mongo_uri = st.secrets["MONGO_URI"]
+    mongo_uri = st.secrets["mongo_uri"]
     return MongoClient(mongo_uri)
 
 
 def get_database():
     """Get the Kayfa database."""
     client = get_mongo_client()
-    db_name = st.secrets.get("DB_NAME", "kayfa_analytics")
+    db_name = st.secrets.get("db_name", "kayfa_analytics")
     return client[db_name]
 
 

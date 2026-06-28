@@ -22,8 +22,8 @@ if not secrets_path.exists():
     )
 
 secrets = toml.load(secrets_path)
-MONGO_URI = secrets["MONGO_URI"]
-DB_NAME = secrets.get("DB_NAME", "kayfa_analytics")
+mongo_uri = secrets["mongo_uri"]
+db_name = secrets.get("db_name", "kayfa_analytics")
 
 # ملفات الـ CSV والـ collection name المقابل لكل منها
 FILES = {
@@ -42,9 +42,9 @@ FILES = {
 # 2) الاتصال بـ MongoDB
 # ─────────────────────────────────────────────────────────────
 print("🔌 جاري الاتصال بـ MongoDB Atlas ...")
-client = MongoClient(MONGO_URI)
-db = client[DB_NAME]
-print(f"✅ متصل بـ database: {DB_NAME}\n")
+client = MongoClient(mongo_uri)
+db = client[db_name]
+print(f"✅ متصل بـ database: {db_name}\n")
 
 # ─────────────────────────────────────────────────────────────
 # 3) رفع كل ملف
