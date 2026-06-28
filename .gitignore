@@ -1,0 +1,18 @@
+# Secrets - never commit
+.streamlit/secrets.toml
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Data files - large/sensitive, not needed in repo
+data/*.csv
+
+# IDE
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
